@@ -7,10 +7,13 @@ import {
 import Home from './Home'
 import About from './About'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import waruTheme from '../warutheme.js';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import '../../css/style.css';
 
 const Root = () => (
   <Router>
-    <MuiThemeProvider>
+    <MuiThemeProvider muiTheme={getMuiTheme(waruTheme)}>
       <div>
         <ul>
           <li><Link to="/">Home</Link></li>

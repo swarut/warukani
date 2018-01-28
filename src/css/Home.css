@@ -1,0 +1,12 @@
+html {
+  background-color: #4CAF50;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 20px; }
+
+.Home {
+  color: #FFF;
+  font-family: 'Catamaran', sans-serif; }
+  .Home :lang(ja) {
+    font-family: "Sawarabi Mincho";
+    font-size: 100px; }
