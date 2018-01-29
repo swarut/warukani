@@ -3,17 +3,3 @@ html {
   margin-left: 10%;
   margin-right: 10%;
   font-size: 20px; }
-
-.nav ul {
-  display: flex;
-  justify-content: flex-end;
-  margin: 0px; }
-  .nav ul li {
-    list-style: none;
-    max-width: 10%;
-    margin-left: 20px; }
-  .nav ul a {
-    color: #FFF;
-    text-decoration: none; }
-    .nav ul a:hover {
-      font-weight: bold; }

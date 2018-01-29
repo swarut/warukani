@@ -1,7 +1,35 @@
+html {
+  background-color: #4CAF50;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 20px; }
+
 #root {
   height: 100vh;
   display: flex;
   flex-direction: column; }
-  #root .body {
-    background-color: pink;
-    flex: 1 1 auto; }
+  #root .real-body {
+    background: yellow;
+    height: 100%;
+    display: flex;
+    flex-direction: column; }
+    #root .real-body .nav ul {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0px; }
+      #root .real-body .nav ul li {
+        list-style: none;
+        max-width: 10%;
+        margin-left: 20px; }
+      #root .real-body .nav ul a {
+        color: #FFF;
+        text-decoration: none; }
+        #root .real-body .nav ul a:hover {
+          font-weight: bold; }
+    #root .real-body .body {
+      background-color: pink;
+      flex: 1 1 auto;
+      justify-content: center;
+      flex-direction: column;
+      display: flex;
+      flex-direction: column; }

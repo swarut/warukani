@@ -1,9 +1,11 @@
 .loading {
   background-color: red;
-  display: flex;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 
   .wrapper {
     background-color: white;
+
   }
 }
