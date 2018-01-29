@@ -23,7 +23,8 @@ const Root = () => (
           <li><Link to="/loading"><FlatButton label="Loading" primary={true} /></Link></li>
           <li><Link to="/about"><FlatButton label="About" primary={true} /></Link></li>
         </ul>
-
+      </div>
+      <div className='body'>
         <Route exact path="/" component={Home} />
         <Route exact path="/loading" component={Loading} />
         <Route exact path="/about" component={About} />
