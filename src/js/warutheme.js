@@ -16,7 +16,8 @@ export default {
     "errorColor": "#ffcdd2",
     "focusColor": "rgba(255, 255, 255, 0.68)",
     "hintColor": "rgba(255, 255, 255, 0.26)",
-    "textColor": "#ffffff"
+    "textColor": "#ffffff",
+    "floatingLabelColor": "rgba(255, 255, 255, 0.54)"
   },
   "timePicker": {
     "headerColor": "#1b5e20"

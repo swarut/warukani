@@ -12,7 +12,7 @@ class Home extends React.Component {
         </h1>
 
 
-        <TextField hintText='Your api token' />
+        <TextField hintText='Your api token' floatingLabelText='Your api token'/>
         <br/>
         <RaisedButton label='Go'></RaisedButton>
       </div>

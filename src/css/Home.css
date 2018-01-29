@@ -4,6 +4,19 @@ html {
   margin-right: 10%;
   font-size: 20px; }
 
+.nav ul {
+  display: flex;
+  justify-content: flex-end; }
+  .nav ul li {
+    list-style: none;
+    max-width: 10%;
+    margin-left: 20px; }
+  .nav ul a {
+    color: #FFF;
+    text-decoration: none; }
+    .nav ul a:hover {
+      font-weight: bold; }
+
 .Home {
   color: #FFF;
   font-family: 'Catamaran', sans-serif; }

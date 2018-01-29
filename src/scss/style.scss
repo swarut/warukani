@@ -9,3 +9,22 @@ html {
   margin-right: 10%;
   font-size: $base-font-size;
 }
+
+.nav {
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    li {
+      list-style: none;
+      max-width: 10%;
+      margin-left: 20px;
+    }
+    a {
+      color: $font-color;
+      text-decoration: none;
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+}
