@@ -7,8 +7,8 @@ class Loading extends React.Component {
     return (
       <div className='loading'>
 
-        <div className='wrapper'>
-          This is loading page.
+        <div className='loading-wrapper'>
+          Loading
         </div>
         <LoadingIndicator />
       </div>

@@ -9,7 +9,6 @@ html {
   display: flex;
   flex-direction: column; }
   #root .real-body {
-    background: yellow;
     height: 100%;
     display: flex;
     flex-direction: column; }
@@ -27,7 +26,6 @@ html {
         #root .real-body .nav ul a:hover {
           font-weight: bold; }
     #root .real-body .body {
-      background-color: pink;
       flex: 1 1 auto;
       justify-content: center;
       flex-direction: column;

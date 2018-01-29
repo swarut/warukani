@@ -1,4 +1,11 @@
 .loading-indicator {
   background-color: green;
   height: 30px;
-  width: 300px; }
+  width: 300px;
+  border-radius: 10px; }
+  .loading-indicator .loading-progress {
+    background-color: white;
+    width: 30px;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px; }

@@ -5,6 +5,7 @@ class LoadingIndicator extends React.Component {
   render() {
     return (
       <div className='loading-indicator'>
+        <div className='loading-progress' />
       </div>
     )
   }
