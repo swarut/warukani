@@ -1,0 +1,6 @@
+.loading {
+  background-color: red;
+  display: flex;
+  height: 100%; }
+  .loading .wrapper {
+    background-color: white; }

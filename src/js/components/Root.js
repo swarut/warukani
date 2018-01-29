@@ -12,6 +12,7 @@ import waruTheme from '../warutheme.js';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import FlatButton from 'material-ui/FlatButton';
 import '../../css/style.css';
+import '../../css/root.css';
 
 const Root = () => (
   <Router>

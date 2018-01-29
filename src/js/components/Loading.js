@@ -5,7 +5,10 @@ class Loading extends React.Component {
   render() {
     return (
       <div className='loading'>
-        This is loading page.
+
+        <div className='wrapper'>
+          This is loading page.
+        </div>
       </div>
     )
   }
