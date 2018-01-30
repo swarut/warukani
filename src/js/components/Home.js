@@ -1,7 +1,7 @@
 import React from 'react'
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import '../../css/Home.css';
+import '../../css/home.css';
 
 class Home extends React.Component {
   render() {

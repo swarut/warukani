@@ -6,7 +6,7 @@ class Dashboard extends React.Component {
   render () {
     return (
       <div className='dashboard'>
-        <RaisedButton label="Practice" className='button1' />
+        <RaisedButton label="Practise" className='button1' />
         <RaisedButton label="Lookup" />
       </div>
     )
