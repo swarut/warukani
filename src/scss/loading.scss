@@ -1,0 +1,12 @@
+.loading {
+  // background-color: red;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .loading-wrapper {
+    color: white;
+    margin-bottom: 10px;
+  }
+}
