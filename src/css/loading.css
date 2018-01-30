@@ -1,7 +1,0 @@
-.loading {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-  .loading .loading-wrapper {
-    background-color: white; }
