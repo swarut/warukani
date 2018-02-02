@@ -13,7 +13,7 @@ class Practice extends React.Component {
           </div>
           <div className='answer'>
             <TextField hintText='Your api token' floatingLabelText='Your api token'/>
-            <RaisedButton label=">" />
+            <RaisedButton label=">" className='go-button' />
           </div>
           <div className='solutions'>
             <div className='item'>
