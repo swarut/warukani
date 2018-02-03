@@ -1,7 +1,9 @@
 import React from 'react'
-import '../../css/practice.css'
+import WordItem from './WordItem'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
+
+import '../../css/practice.css'
 
 class Practice extends React.Component {
   render() {
@@ -16,34 +18,11 @@ class Practice extends React.Component {
             <RaisedButton label=">" className='go-button' />
           </div>
           <div className='solutions'>
-            <div className='item'>
-              <div className='word'>
-                <div className='word'>進展</div>
-                <div className='level'>4</div>
-              </div>
-              <div className='details'>
-                <div className='yomu'>しんてん</div>
-                <div className='meaning'>Advance</div>
-                <div className='tags'>
-                  <div className='tag'>evo1</div>
-                  <div className='tag'>evo2</div>
-                  <div className='tag'>evo3</div>
-                </div>
-              </div>
-            </div>
-            <div className='item'>
-              <div className='word'>
-                <div className='word'>進展</div>
-                <div className='level'>4</div>
-              </div>
-              <div className='details'>
-                <div className='yomu'>しんてん</div>
-                <div className='meaning'>Advance</div>
-                <div className='tags'>
-                  <div className='tag'>evo</div>
-                </div>
-              </div>
-            </div>
+            <WordItem />
+            <WordItem />
+            <WordItem />
+
+
           </div>
         </div>
       </div>
