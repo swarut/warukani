@@ -13,8 +13,15 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import waruTheme from '../warutheme.js';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import FlatButton from 'material-ui/FlatButton';
+
+import { createStore } from 'redux'
+import Warukani from '../reducers/warukani'
+
 import '../../css/style.css';
 import '../../css/root.css';
+
+let store = createStore(Warukani)
+console.log(store)
 
 const Root = () => (
   <Router>

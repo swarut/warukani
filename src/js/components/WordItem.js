@@ -1,8 +1,19 @@
-import React from 'react';
+import React from 'react'
+import axios from 'axios'
 import '../../css/word-item.css'
 
+
 class WordItem extends React.Component {
+
   render() {
+    axios.get('/user?ID=12345')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
     return (
       <div className='word-item'>
         <div className='word'>
