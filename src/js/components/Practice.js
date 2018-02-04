@@ -18,11 +18,7 @@ class Practice extends React.Component {
             <RaisedButton label=">" className='go-button' />
           </div>
           <div className='solutions'>
-            <WordItem />
-            <WordItem />
-            <WordItem />
-
-
+            <WordItem level='20'/>
           </div>
         </div>
       </div>

@@ -4,3 +4,5 @@ const authenticate = token => {
     token
   }
 }
+
+export default authenticate
