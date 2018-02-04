@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import User from './user'
-import Errors from './errors'
+import user from './user'
+import errors from './errors'
 
 const Warukani = combineReducers({
-  User,
-  Errors
+  user,
+  errors
 })
 
 export default Warukani

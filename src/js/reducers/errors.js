@@ -1,13 +1,16 @@
-const Errors = (state = [], action) => {
+const defaultStates = {
+  invalid_token: false
+}
+const errors = (state = defaultStates, action) => {
   switch(action.type) {
     case 'ERROR.INVALID_TOKEN':
-      return [
+      return {
         ...state,
-        { invalid_token: true }
-      ]
+        invalid_token: true
+      }
     default:
       return state
   }
 }
 
-export default Errors
+export default errors
