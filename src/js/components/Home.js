@@ -40,9 +40,7 @@ Home.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    name: "taiko"
-  }
+  return {}
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -57,7 +55,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         })
       })
       .catch(function (error) {
-        console.log(error);
+        dispatch({ type: 'ERROR.INVALID_TOKEN' })
       });
     }
   }
