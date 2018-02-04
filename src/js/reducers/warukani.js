@@ -4,7 +4,8 @@ const Warukani = (state = [], action) => {
       return [
         ...state,
         {
-          token: action.token
+          token: action.token,
+          username: action.username
         }
       ]
     default:

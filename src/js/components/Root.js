@@ -22,7 +22,6 @@ import '../../css/style.css';
 import '../../css/root.css';
 
 let store = createStore(Warukani, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-console.log(store)
 
 const Root = () => (
   <Provider store={store}>

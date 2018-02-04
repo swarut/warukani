@@ -1,24 +1,33 @@
 import React from 'react'
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import axios from 'axios'
 
 import '../../css/home.css';
 
 class Home extends React.Component {
-  
+  constructor(props) {
+    super(props)
+    this.onClick = this.onClick.bind(this)
+    this.onTokenChange = this.onTokenChange.bind(this)
+  }
   onClick(e) {
-    // store.dispatch("yo")
+    this.props.onButtonClick(this.state.token)
+  }
+  onTokenChange(e) {
+    this.setState({ token: e.target.value })
   }
   render() {
     return (
       <div className='Home'>
         <h1>
-          WaruKani
+          WaruKani {this.props.name}
         </h1>
 
 
-        <TextField hintText='Your api token' floatingLabelText='Your api token'/>
+        <TextField onChange={this.onTokenChange} ref='tokenField' hintText='Your api token' floatingLabelText='Your api token'/>
         <br/>
         <RaisedButton label='Go' onClick={this.onClick} />
       </div>
@@ -26,4 +35,32 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+Home.propTypes = {
+  onButtonClick: PropTypes.func.isRequired
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    name: "taiko"
+  }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onButtonClick: (token) => {
+      axios.get(`https://www.wanikani.com/api/user/${token}`)
+      .then(function (response) {
+        dispatch({
+          type: 'AUTHENTICATE',
+          username: response.data.user_information.username,
+          token: token
+        })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

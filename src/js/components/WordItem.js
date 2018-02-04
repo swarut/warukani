@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import PropTypes from 'prop-types'
 import '../../css/word-item.css'
 
@@ -7,13 +6,6 @@ import '../../css/word-item.css'
 class WordItem extends React.Component {
 
   render() {
-    axios.get('/user?ID=12345')
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
 
     return (
       <div className='word-item'>
@@ -45,7 +37,7 @@ WordItem.propTypes = {
 
 WordItem.defaultProps = {
   character: '進展',
-  // level: '4',
+  level: '4',
   kana: 'しんてん',
   meaning: 'advance',
   tags: ['a1', 'b2', 'c3']
