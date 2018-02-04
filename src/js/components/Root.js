@@ -2,7 +2,8 @@ import React from 'react'
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom'
 import Home from './Home'
 import About from './About'
@@ -23,6 +24,40 @@ import '../../css/root.css';
 
 let store = createStore(Warukani, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
+// const PrivateRoute = ({component: Component, ...rest}) => {
+//   const state = store.getState()
+//   if(state.user.token && state.user.username) {
+//     console.log("authenticated")
+//     return (<Route {...rest} component={Component} />)
+//   }
+//   else {
+//     console.log("getout")
+//     return <Redirect to="/" />
+//   }
+// }
+const authenticated = () => {
+  console.log("aaaa")
+  return () => {
+    const state = store.getState()
+    const s = state.user.token && state.user.username
+    console.log("s=",state)
+    return s
+  }
+}
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    authenticated()() ? (
+      <Component {...props}/>
+    ) : (
+      <Redirect to={{
+        pathname: '/',
+        state: { from: props.location }
+      }}/>
+    )
+  )}/>
+)
+
 const Root = () => (
   <Provider store={store}>
     <Router>
@@ -39,7 +74,7 @@ const Root = () => (
           </div>
           <div className='body'>
             <Route exact path="/" component={Home} />
-            <Route exact path="/loading" component={Loading} />
+            <PrivateRoute exact path="/loading" component={Loading} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/practice" component={Practice} />
             <Route exact path="/about" component={About} />

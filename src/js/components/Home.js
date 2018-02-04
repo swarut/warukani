@@ -5,7 +5,11 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 
+import createHistory from "history/createBrowserHistory"
+
 import '../../css/home.css';
+
+const history = createHistory()
 
 class Home extends React.Component {
   constructor(props) {
@@ -56,7 +60,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
           username: response.data.user_information.username,
           token: token
         })
-        window.location = "/loading"
+        // window.location = "/loading"
+        history.push('/loading')
       })
       .catch(function (error) {
         dispatch({ type: 'ERROR.INVALID_TOKEN' })
