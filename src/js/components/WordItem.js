@@ -25,8 +25,8 @@ class WordItem extends React.Component {
           <div className='yomu'>{this.props.kana}</div>
           <div className='meaning'>{this.props.meaning}</div>
           <div className='tags'>
-            {this.props.tags.map( (t) =>
-              <div className='tag'>{t}</div>
+            {this.props.tags.map( (t, index) =>
+              <div key={index} className='tag'>{t}</div>
             )}
           </div>
         </div>
