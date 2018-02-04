@@ -1,16 +1,8 @@
-const Warukani = (state = [], action) => {
-  switch(action.type) {
-    case 'AUTHENTICATE':
-      return [
-        ...state,
-        {
-          token: action.token,
-          username: action.username
-        }
-      ]
-    default:
-      return state
-  }
-}
+import { combineReducers } from 'redux'
+import User from './user'
+
+const Warukani = combineReducers({
+  User
+})
 
 export default Warukani
