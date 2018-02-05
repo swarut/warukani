@@ -74,7 +74,7 @@ const Root = () => (
           </div>
           <div className='body'>
             <Route exact path="/" component={Home} />
-            <PrivateRoute exact path="/loading" component={Loading} />
+            <Route exact path="/loading" component={Loading} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/practice" component={Practice} />
             <Route exact path="/about" component={About} />

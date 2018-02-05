@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import authenticate from '../actions/actions'
+import { Redirect } from 'react-router'
 
 import createHistory from "history/createBrowserHistory"
 
@@ -36,6 +37,9 @@ class Home extends React.Component {
           floatingLabelText='Your api token' />
         <br/>
         <RaisedButton label='Go' onClick={this.onClick} />
+        {this.props.username ?
+          <Redirect to="/loading" /> : "xxx"
+        }
       </div>
     )
   }
@@ -47,7 +51,9 @@ Home.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    invalid_token: state.errors.invalid_token
+    invalid_token: state.errors.invalid_token,
+    token: state.user.token,
+    username: state.user.username
   }
 }
 
