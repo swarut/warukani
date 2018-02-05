@@ -4,6 +4,7 @@ import TextField from 'material-ui/TextField';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import authenticate from '../actions/actions'
 
 import createHistory from "history/createBrowserHistory"
 
@@ -55,13 +56,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onButtonClick: (token) => {
       axios.get(`https://www.wanikani.com/api/user/${token}`)
       .then(function (response) {
-        dispatch({
-          type: 'AUTHENTICATE',
-          username: response.data.user_information.username,
-          token: token
-        })
-        // window.location = "/loading"
-        history.push('/loading')
+        dispatch(authenticate(token, response.data.user_information.username))
       })
       .catch(function (error) {
         dispatch({ type: 'ERROR.INVALID_TOKEN' })
