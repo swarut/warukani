@@ -1,9 +1,17 @@
 import React from 'react'
 import LoadingIndicator from './LoadingIndicator'
+import axios from 'axios'
 import { connect } from 'react-redux'
+import {fetch_user_information, received_user_information} from '../actions/actions'
 import '../../css/loading.css';
 
 class Loading extends React.Component {
+
+  componentDidMount() {
+    console.log("loading mount")
+    this.props.onFetchUserInformation()
+  }
+
   render() {
     return (
       <div className='loading'>
@@ -25,7 +33,21 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {}
+  return {
+    onFetchUserInformation: () => {
+      let url = `https://www.wanikani.com/api/user/${ownProps.token}/user-information`
+      console.log("url = ", url)
+      dispatch(fetch_user_information())
+      axios.get(url)
+      .then(function (response) {
+        console.log("response", response)
+        dispatch(received_user_information(response.data.user_information))
+      })
+      .catch(function (error) {
+        dispatch({ type: 'ERROR.INVALID_TOKEN' })
+      });
+    }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Loading)

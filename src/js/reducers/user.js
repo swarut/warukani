@@ -5,6 +5,14 @@ const user = (state = {username: null, token: null}, action) => {
         token: action.token,
         username: action.username
       })
+    case 'FETCH_USER_INFORMATION':
+      return Object.assign({}, state, {
+        level_progess: action.level
+      })
+    case 'RECEIVED_USER_INFORMATION':
+      return Object.assign({}, state, {
+        level_progess: action.level
+      })
     default:
       return state
   }
