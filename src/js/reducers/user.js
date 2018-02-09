@@ -1,4 +1,4 @@
-const user = (state = {username: null, token: null}, action) => {
+const user = (state = {username: null, token: null, user_information: {}}, action) => {
   switch(action.type) {
     case 'AUTHENTICATE':
       return Object.assign({}, state, {
@@ -7,11 +7,11 @@ const user = (state = {username: null, token: null}, action) => {
       })
     case 'FETCH_USER_INFORMATION':
       return Object.assign({}, state, {
-        level_progess: action.level
+
       })
     case 'RECEIVED_USER_INFORMATION':
       return Object.assign({}, state, {
-        level_progess: action.level
+        user_information: action.user_information
       })
     default:
       return state
