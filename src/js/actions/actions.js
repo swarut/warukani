@@ -21,3 +21,5 @@ export const received_user_information = (userInformation) => {
     user_information: userInformation
   }
 }
+
+export const ERROR_INVALID_TOKEN = 'ERROR_INVALID_TOKEN'
