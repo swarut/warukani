@@ -8,17 +8,17 @@ export const authenticate = (token, username) => {
 }
 
 export const FETCH_USER_INFORMATION = 'FETCH_USER_INFORMATION'
-export const fetch_user_information = () => {
+export const fetchUserInformation = () => {
   return {
     type: FETCH_USER_INFORMATION
   }
 }
 
 export const RECEIVED_USER_INFORMATION = 'RECEIVED_USER_INFORMATION'
-export const received_user_information = (userInformation) => {
+export const receivedUserInformation = (userInformation) => {
   return {
     type: RECEIVED_USER_INFORMATION,
-    user_information: userInformation
+    userInformation: userInformation
   }
 }
 

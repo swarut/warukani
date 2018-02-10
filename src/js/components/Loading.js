@@ -2,7 +2,7 @@ import React from 'react'
 import LoadingIndicator from './LoadingIndicator'
 import axios from 'axios'
 import { connect } from 'react-redux'
-import {fetch_user_information, received_user_information} from '../actions/actions'
+import {fetchUserInformation, receivedUserInformation} from '../actions/actions'
 import '../../css/loading.css';
 
 class Loading extends React.Component {
@@ -28,7 +28,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     token: state.user.token,
     username: state.user.username,
-    level: state.user.user_information ? state.user.user_information.level : "xx"
+    level: state.user.userInformation ? state.user.userInformation.level : "xx"
   }
 }
 
@@ -37,11 +37,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onFetchUserInformation: (token) => {
       let url = `https://www.wanikani.com/api/user/${token}/user-information`
       console.log("url = ", url)
-      dispatch(fetch_user_information())
+      dispatch(fetchUserInformation())
       axios.get(url)
       .then(function (response) {
         console.log("response", response.data.user_information)
-        dispatch(received_user_information(response.data.user_information))
+        dispatch(receivedUserInformation(response.data.user_information))
       })
       .catch(function (error) {
         dispatch({ type: 'ERROR.INVALID_TOKEN' })
