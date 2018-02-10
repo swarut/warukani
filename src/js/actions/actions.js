@@ -1,23 +1,23 @@
-const authenticate = (token, username) => {
+export const AUTHENTICATE = 'AUTHENTICATE'
+export const authenticate = (token, username) => {
   return {
-    type: 'AUTHENTICATE',
+    type: AUTHENTICATE,
     token,
     username
   }
 }
 
-const fetch_user_information = () => {
+export const FETCH_USER_INFORMATION = 'FETCH_USER_INFORMATION'
+export const fetch_user_information = () => {
   return {
-    type: 'FETCH_USER_INFORMATION'
+    type: FETCH_USER_INFORMATION
   }
 }
 
-const received_user_information = (userInformation) => {
+export const RECEIVED_USER_INFORMATION = 'RECEIVED_USER_INFORMATION'
+export const received_user_information = (userInformation) => {
   return {
-    type: 'RECEIVED_USER_INFORMATION',
+    type: RECEIVED_USER_INFORMATION,
     user_information: userInformation
   }
 }
-
-// export default { authenticate, fetch_user_information, received_user_information }
-module.exports = { authenticate, fetch_user_information, received_user_information }
