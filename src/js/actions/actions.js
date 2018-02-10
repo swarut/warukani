@@ -23,3 +23,5 @@ export const received_user_information = (userInformation) => {
 }
 
 export const ERROR_INVALID_TOKEN = 'ERROR_INVALID_TOKEN'
+
+export const RECIEVED_VOCABS = 'RECIEVED_VOCABS'

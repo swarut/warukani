@@ -1,6 +1,7 @@
+import { RECIEVED_VOCABS } from '../actions/actions'
 const vocabs = (state = {}, action) => {
   switch(action.type) {
-    case 'RETRIEVED_VOCABS':
+    case RECIEVED_VOCABS:
       return Object.assign({}, state, {
         [action.level]: action.vocabs
       })
