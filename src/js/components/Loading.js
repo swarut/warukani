@@ -8,7 +8,6 @@ import '../../css/loading.css';
 class Loading extends React.Component {
 
   componentDidMount() {
-    console.log("loading mount")
     this.props.onFetchUserInformation(this.props.token)
   }
 
@@ -26,7 +25,6 @@ class Loading extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log("loading - map state to prosp")
   return {
     token: state.user.token,
     username: state.user.username,

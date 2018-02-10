@@ -7,11 +7,7 @@ import axios from 'axios'
 import { authenticate } from '../actions/actions'
 import { Redirect } from 'react-router'
 
-import createHistory from "history/createBrowserHistory"
-
 import '../../css/home.css';
-
-const history = createHistory()
 
 class Home extends React.Component {
   constructor(props) {
