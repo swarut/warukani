@@ -25,7 +25,7 @@ class Home extends React.Component {
     return (
       <div className='Home'>
         <h1>WaruKani</h1>
-
+        60d462e5c9b8e4fcbaaa72433ff04bab
         <TextField
           errorText={this.props.invalid_token ? 'Invalid token' : null}
           onChange={this.onTokenChange}
