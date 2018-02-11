@@ -5,6 +5,12 @@ import {
   Link,
   Redirect
 } from 'react-router-dom'
+
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+
+
 import Home from './Home'
 import About from './About'
 import Loading from './Loading'
@@ -15,14 +21,21 @@ import waruTheme from '../warutheme.js';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import FlatButton from 'material-ui/FlatButton';
 
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
 import Warukani from '../reducers/warukani'
 
 import '../../css/style.css';
 import '../../css/root.css';
 
-let store = createStore(Warukani, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+// let store = createStore(
+//   Warukani,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// )
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+let store = createStore(
+  Warukani,
+  composeEnhancers(applyMiddleware(thunkMiddleware))
+);
 
 // const PrivateRoute = ({component: Component, ...rest}) => {
 //   const state = store.getState()
@@ -36,7 +49,6 @@ let store = createStore(Warukani, window.__REDUX_DEVTOOLS_EXTENSION__ && window.
 //   }
 // }
 const authenticated = () => {
-  console.log("aaaa")
   return () => {
     const state = store.getState()
     const s = state.user.token && state.user.username
