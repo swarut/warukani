@@ -61,10 +61,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(fetchUserInformation())
       axios.get(url)
       .then(function (response) {
-        setTimeout(() => {
-          dispatch(receivedUserInformation(response.data.user_information))
-          dispatch(fetchVocabsOfLevel(1, token))
-        }, 1000)
+        dispatch(receivedUserInformation(response.data.user_information))
+        dispatch(fetchVocabsOfLevel(1, token))
       })
       .catch(function (error) {
         dispatch({ type: 'ERROR.INVALID_TOKEN' })
