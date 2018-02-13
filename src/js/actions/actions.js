@@ -59,3 +59,19 @@ export const fetchVocabsOfLevel = (level, token) => {
     })
   }
 }
+
+export const fetchKanjiOfLevel = (level, token) => {
+  return (dispatch) => {
+    dispatch(fetchVocabs(level))
+    let url = `https://www.wanikani.com/api/user/${token}/kanji/${level}`
+    console.log("url", url)
+    return axios.get(url)
+    .then((response) => {
+      console.log("------- receive kanji", response)
+      dispatch(receivedVocabs(level, response.data.requested_information))
+    })
+    .catch((error) => {
+      console.log("error on fetching kanji")
+    })
+  }
+}
