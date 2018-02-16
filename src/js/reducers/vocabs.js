@@ -1,5 +1,14 @@
 import { FETCH_VOCABS, RECEIVED_VOCABS } from '../actions/actions'
-const vocabs = (state = {isFetching: false, wasFetched: false}, action) => {
+
+const defaultState = {
+  isFetching: false,
+  wasFetched: false,
+  radicals: {},
+  kanjis: {},
+  vocabs: {},
+}
+
+const vocabs = (state = defaultState, action) => {
   switch(action.type) {
     case FETCH_VOCABS:
       return Object.assign({}, state, {
