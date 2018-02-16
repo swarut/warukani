@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 import {
   receivedUserInformation,
   fetchUserInformation,
-  fetchVocabsOfLevel
+  fetchVocabsOfLevel,
+  fetchRadicalsOfLevel
 } from '../actions/actions'
 import '../../css/loading.css';
 
@@ -63,6 +64,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       .then(function (response) {
         dispatch(receivedUserInformation(response.data.user_information))
         dispatch(fetchVocabsOfLevel(1, token))
+          .then(() =>
+            setTimeout(() => {
+              console.log("after 5 secs wait")
+              dispatch(fetchRadicalsOfLevel(1, token))
+            }, 5000)
+          )
       })
       .catch(function (error) {
         dispatch({ type: 'ERROR.INVALID_TOKEN' })
