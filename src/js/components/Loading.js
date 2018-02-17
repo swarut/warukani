@@ -8,6 +8,7 @@ import {
   fetchVocabsOfLevel,
   fetchRadicalsOfLevel
 } from '../actions/actions'
+import { Redirect } from 'react-router'
 import '../../css/loading.css';
 
 class Loading extends React.Component {
@@ -37,7 +38,9 @@ class Loading extends React.Component {
         <div> was user fetched: {this.props.wasUserFetched ? 'true' : 'false'}</div>
         <div> is vocabs fetching: {this.props.isVocabFetching ? 'true' : 'false'}</div>
         <div> was vocabs fetched: {this.props.wasVocabFetched ? 'true' : 'false'}</div>
-
+        {this.props.wasVocabFetched ?
+          <Redirect to="/dashboard" /> : "xxx"
+        }
       </div>
     )
   }
@@ -64,12 +67,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       .then(function (response) {
         dispatch(receivedUserInformation(response.data.user_information))
         dispatch(fetchVocabsOfLevel(1, token))
-          .then(() =>
-            setTimeout(() => {
-              console.log("after 5 secs wait")
-              dispatch(fetchRadicalsOfLevel(1, token))
-            }, 5000)
-          )
+          // .then(() =>
+          //   setTimeout(() => {
+          //     console.log("after 5 secs wait")
+          //
+          //   }, 5000)
+          // )
       })
       .catch(function (error) {
         dispatch({ type: 'ERROR.INVALID_TOKEN' })
