@@ -45,6 +45,15 @@ export const receivedVocabs = (vocabType, level, requestedInformation) => {
   }
 }
 
+export const RECEIVED_ALL_VOCABS = 'RECEIVED_ALL_VOCABS'
+export const receivedAllVocabs = (vocabType, level, allVocabs) => {
+  return {
+    type: RECEIVED_ALL_VOCABS,
+    allVocabs: allVocabs,
+    vocabType: vocabType
+  }
+}
+
 
 export const fetchRadicalsOfLevel = (level, token) => {
   return (dispatch) => {
@@ -81,16 +90,31 @@ export const fetchKanjisOfLevel = (level, token) => {
 export const fetchVocabsOfLevel = (level, token) => {
   return (dispatch) => {
     dispatch(fetchVocabs(level))
-    let url = `https://www.wanikani.com/api/user/${token}/vocabulary/${level}`
-    console.log("url", url)
-    
-    return axios.get(url)
-    .then((response) => {
-      console.log("------- receive vocabs", response)
-      dispatch(receivedVocabs("vocabs", level, response.data.requested_information))
+    // let url = `https://www.wanikani.com/api/user/${token}/vocabulary/${level}`
+    // console.log("url", url)
+
+    let promise1 = new Promise((resolve, reject) => {
+      let url1 = `https://www.wanikani.com/api/user/${token}/vocabulary/1`
+      return axios.get(url1).then((response) => resolve({ 1: response.data.requested_information}))
     })
-    .catch((error) => {
-      console.log("error on fetching vocabs")
+
+    let promise2 = new Promise((resolve, reject) => {
+      let url2 = `https://www.wanikani.com/api/user/${token}/vocabulary/2`
+      return axios.get(url2).then((response) => resolve({ 2: response.data.requested_information}))
     })
+
+    Promise.all([promise1, promise2]).then((results) => {
+      let o = Object.assign(results[0], results[1])
+      dispatch(receivedAllVocabs("vocabs", level, o))
+    })
+
+    // return axios.get(url)
+    // .then((response) => {
+    //   console.log("------- receive vocabs", response)
+    //   dispatch(receivedVocabs("vocabs", level, response.data.requested_information))
+    // })
+    // .catch((error) => {
+    //   console.log("error on fetching vocabs")
+    // })
   }
 }

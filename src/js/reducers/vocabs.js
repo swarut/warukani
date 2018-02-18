@@ -1,4 +1,4 @@
-import { FETCH_VOCABS, RECEIVED_VOCABS } from '../actions/actions'
+import { FETCH_VOCABS, RECEIVED_VOCABS, RECEIVED_ALL_VOCABS } from '../actions/actions'
 
 const defaultState = {
   isFetching: false,
@@ -22,6 +22,12 @@ const vocabs = (state = defaultState, action) => {
 
       return Object.assign({}, state, {
         [action.vocabType]: newData,
+        isFetching: false,
+        wasFetched: true
+      })
+    case RECEIVED_ALL_VOCABS:
+      return Object.assign({}, state, {
+        [action.vocabType]: action.allVocabs,
         isFetching: false,
         wasFetched: true
       })
