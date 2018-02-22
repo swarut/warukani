@@ -5,8 +5,7 @@ import { connect } from 'react-redux'
 import {
   receivedUserInformation,
   fetchUserInformation,
-  fetchVocabsOfLevel,
-  fetchRadicalsOfLevel
+  fetchVocabsOfAllLevels
 } from '../actions/actions'
 import { Redirect } from 'react-router'
 import '../../css/loading.css';
@@ -69,7 +68,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       axios.get(url)
       .then(function (response) {
         dispatch(receivedUserInformation(response.data.user_information))
-        dispatch(fetchVocabsOfLevel(1, token))
+        dispatch(fetchVocabsOfAllLevels(token))
           // .then(() =>
           //   setTimeout(() => {
           //     console.log("after 5 secs wait")

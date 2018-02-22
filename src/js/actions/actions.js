@@ -35,6 +35,13 @@ export const fetchVocabs = (level) => {
   }
 }
 
+export const FETCH_ALL_VOCABS = 'FETCH_ALL_VOCABS'
+export const fetchAllVocabs = () => {
+  return {
+    type: FETCH_ALL_VOCABS
+  }
+}
+
 export const RECEIVED_VOCABS = 'RECEIVED_VOCABS'
 export const receivedVocabs = (vocabType, level, requestedInformation) => {
   return {
@@ -97,9 +104,21 @@ export const fetchKanjisOfLevel = (level, token) => {
 export const fetchVocabsOfLevel = (level, token) => {
   return (dispatch) => {
     dispatch(fetchVocabs(level))
-    // let url = `https://www.wanikani.com/api/user/${token}/vocabulary/${level}`
-    // console.log("url", url)
+    let url = `https://www.wanikani.com/api/user/${token}/vocabulary/${level}`
 
+    return axios.get(url)
+    .then((response) => {
+      dispatch(receivedVocabs("vocabs", level, response.data.requested_information))
+    })
+    .catch((error) => {
+      console.log("error on fetching vocabs")
+    })
+  }
+}
+
+export const fetchVocabsOfAllLevels = (token) => {
+  return (dispatch) => {
+    dispatch(fetchAllVocabs())
     let promises = []
     for(let i = 0; i < 40; i++) {
       let promise = new Promise((resolve, reject) => {
@@ -119,29 +138,5 @@ export const fetchVocabsOfLevel = (level, token) => {
 
       dispatch(receivedAllVocabs("vocabs", o))
     })
-
-    // let promise1 = new Promise((resolve, reject) => {
-    //   let url1 = `https://www.wanikani.com/api/user/${token}/vocabulary/1`
-    //   return axios.get(url1).then((response) => resolve({ 1: response.data.requested_information}))
-    // })
-    //
-    // let promise2 = new Promise((resolve, reject) => {
-    //   let url2 = `https://www.wanikani.com/api/user/${token}/vocabulary/2`
-    //   return axios.get(url2).then((response) => resolve({ 2: response.data.requested_information}))
-    // })
-
-    // Promise.all([promise1, promise2]).then((results) => {
-    //   let o = Object.assign(results[0], results[1])
-    //   dispatch(receivedAllVocabs("vocabs", level, o))
-    // })
-
-    // return axios.get(url)
-    // .then((response) => {
-    //   console.log("------- receive vocabs", response)
-    //   dispatch(receivedVocabs("vocabs", level, response.data.requested_information))
-    // })
-    // .catch((error) => {
-    //   console.log("error on fetching vocabs")
-    // })
   }
 }
