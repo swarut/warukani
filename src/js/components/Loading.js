@@ -33,7 +33,7 @@ class Loading extends React.Component {
         <div className='loading-wrapper'>
           Loading {this.props.username}, level #{this.props.level}
         </div>
-        <LoadingIndicator />
+        <LoadingIndicator currentProgress={this.props.progressCount} totalProgress={this.props.totalLevel}/>
         <div> is user fetching: {this.props.isUserFetching ? 'true' : 'false'}</div>
         <div> was user fetched: {this.props.wasUserFetched ? 'true' : 'false'}</div>
         <div> is vocabs fetching: {this.props.isVocabFetching ? 'true' : 'false'}</div>
@@ -47,6 +47,7 @@ class Loading extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log("loding mapStateToProps", state)
   return {
     token: state.user.token,
     username: state.user.username,
@@ -54,7 +55,9 @@ const mapStateToProps = (state, ownProps) => {
     isUserFetching: state.user.isFetching,
     wasUserFetched: state.user.wasFetched,
     isVocabFetching: state.vocabs.isFetching,
-    wasVocabFetched: state.vocabs.wasFetched
+    wasVocabFetched: state.vocabs.wasFetched,
+    totalLevel: state.vocabs.totalLevel,
+    progressCount: state.vocabs.progressCount
   }
 }
 

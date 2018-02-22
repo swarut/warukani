@@ -1,4 +1,4 @@
-import { FETCH_VOCABS, RECEIVED_VOCABS, RECEIVED_ALL_VOCABS } from '../actions/actions'
+import { FETCH_VOCABS, RECEIVED_VOCABS, RECEIVED_ALL_VOCABS, INCREASE_VOCABS_PROGRESS } from '../actions/actions'
 
 const defaultState = {
   isFetching: false,
@@ -6,6 +6,8 @@ const defaultState = {
   radicals: {},
   kanjis: {},
   vocabs: {},
+  totalLevel: 40,
+  progressCount: 0
 }
 
 const vocabs = (state = defaultState, action) => {
@@ -30,6 +32,10 @@ const vocabs = (state = defaultState, action) => {
         [action.vocabType]: action.allVocabs,
         isFetching: false,
         wasFetched: true
+      })
+    case INCREASE_VOCABS_PROGRESS:
+      return Object.assign({}, state, {
+        progressCount: state.progressCount + 1
       })
     default:
       return state

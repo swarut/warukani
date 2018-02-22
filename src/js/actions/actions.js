@@ -54,6 +54,13 @@ export const receivedAllVocabs = (vocabType, allVocabs) => {
   }
 }
 
+export const INCREASE_VOCABS_PROGRESS = 'INCREASE_VOCABS_PROGRESS'
+export const increaseVocabsProgress = () => {
+  return {
+    type: INCREASE_VOCABS_PROGRESS
+  }
+}
+
 
 export const fetchRadicalsOfLevel = (level, token) => {
   return (dispatch) => {
@@ -97,7 +104,10 @@ export const fetchVocabsOfLevel = (level, token) => {
     for(let i = 0; i < 40; i++) {
       let promise = new Promise((resolve, reject) => {
         let url = `https://www.wanikani.com/api/user/${token}/vocabulary/${i}`
-        return axios.get(url).then((response) => resolve({ key: i, result: response.data.requested_information}))
+        return axios.get(url).then((response) => {
+          dispatch(increaseVocabsProgress())
+          resolve({ key: i, result: response.data.requested_information})
+        })
       })
       promises.push(promise)
     }
