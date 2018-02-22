@@ -46,7 +46,7 @@ export const receivedVocabs = (vocabType, level, requestedInformation) => {
 }
 
 export const RECEIVED_ALL_VOCABS = 'RECEIVED_ALL_VOCABS'
-export const receivedAllVocabs = (vocabType, level, allVocabs) => {
+export const receivedAllVocabs = (vocabType, allVocabs) => {
   return {
     type: RECEIVED_ALL_VOCABS,
     allVocabs: allVocabs,
@@ -93,20 +93,37 @@ export const fetchVocabsOfLevel = (level, token) => {
     // let url = `https://www.wanikani.com/api/user/${token}/vocabulary/${level}`
     // console.log("url", url)
 
-    let promise1 = new Promise((resolve, reject) => {
-      let url1 = `https://www.wanikani.com/api/user/${token}/vocabulary/1`
-      return axios.get(url1).then((response) => resolve({ 1: response.data.requested_information}))
+    let promises = []
+    for(let i = 0; i < 40; i++) {
+      let promise = new Promise((resolve, reject) => {
+        let url = `https://www.wanikani.com/api/user/${token}/vocabulary/${i}`
+        return axios.get(url).then((response) => resolve({ key: i, result: response.data.requested_information}))
+      })
+      promises.push(promise)
+    }
+    Promise.all(promises).then((results) => {
+      let o = {}
+      results.forEach((result) => {
+        o[result.key] = result.result
+      })
+
+      dispatch(receivedAllVocabs("vocabs", o))
     })
 
-    let promise2 = new Promise((resolve, reject) => {
-      let url2 = `https://www.wanikani.com/api/user/${token}/vocabulary/2`
-      return axios.get(url2).then((response) => resolve({ 2: response.data.requested_information}))
-    })
+    // let promise1 = new Promise((resolve, reject) => {
+    //   let url1 = `https://www.wanikani.com/api/user/${token}/vocabulary/1`
+    //   return axios.get(url1).then((response) => resolve({ 1: response.data.requested_information}))
+    // })
+    //
+    // let promise2 = new Promise((resolve, reject) => {
+    //   let url2 = `https://www.wanikani.com/api/user/${token}/vocabulary/2`
+    //   return axios.get(url2).then((response) => resolve({ 2: response.data.requested_information}))
+    // })
 
-    Promise.all([promise1, promise2]).then((results) => {
-      let o = Object.assign(results[0], results[1])
-      dispatch(receivedAllVocabs("vocabs", level, o))
-    })
+    // Promise.all([promise1, promise2]).then((results) => {
+    //   let o = Object.assign(results[0], results[1])
+    //   dispatch(receivedAllVocabs("vocabs", level, o))
+    // })
 
     // return axios.get(url)
     // .then((response) => {
