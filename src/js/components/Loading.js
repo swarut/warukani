@@ -68,7 +68,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       axios.get(url)
       .then(function (response) {
         dispatch(receivedUserInformation(response.data.user_information))
-        dispatch(fetchVocabsOfAllLevels(token))
+        dispatch(fetchVocabsOfAllLevels(token, response.data.user_information.level))
           // .then(() =>
           //   setTimeout(() => {
           //     console.log("after 5 secs wait")
