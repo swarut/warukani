@@ -69,12 +69,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       .then(function (response) {
         dispatch(receivedUserInformation(response.data.user_information))
         dispatch(fetchVocabsOfAllLevels(token, response.data.user_information.level))
-          // .then(() =>
-          //   setTimeout(() => {
-          //     console.log("after 5 secs wait")
-          //
-          //   }, 5000)
-          // )
       })
       .catch(function (error) {
         dispatch({ type: 'ERROR.INVALID_TOKEN' })
