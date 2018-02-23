@@ -1,6 +1,14 @@
 import { AUTHENTICATE, FETCH_USER_INFORMATION, RECEIVED_USER_INFORMATION } from '../actions/actions'
 
-const user = (state = {username: null, token: null, user_information: {}, isFetching: false, wasFetched: false}, action) => {
+const defaultState = {
+  username: null,
+  token: null,
+  user_information: {},
+  isFetching: false,
+  wasFetched: false
+}
+
+const user = (state = defaultState, action) => {
   switch(action.type) {
     case AUTHENTICATE:
       return Object.assign({}, state, {
