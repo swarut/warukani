@@ -46,7 +46,6 @@ class Loading extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log("loding mapStateToProps", state)
   return {
     token: state.user.token,
     username: state.user.username,

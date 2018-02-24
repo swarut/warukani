@@ -15,6 +15,12 @@ class Home extends React.Component {
     this.onClick = this.onClick.bind(this)
     this.onTokenChange = this.onTokenChange.bind(this)
   }
+  componentDidMount() {
+    let token = localStorage.getItem('wanikani_token')
+    if (token) {
+      this.props.onButtonClick(token)
+    }
+  }
   onClick(e) {
     this.props.onButtonClick(this.state.token)
   }
@@ -25,7 +31,6 @@ class Home extends React.Component {
     return (
       <div className='Home'>
         <h1>WaruKani</h1>
-        60d462e5c9b8e4fcbaaa72433ff04bab
         <TextField
           errorText={this.props.invalid_token ? 'Invalid token' : null}
           onChange={this.onTokenChange}
@@ -59,6 +64,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       axios.get(`https://www.wanikani.com/api/user/${token}`)
       .then(function (response) {
         dispatch(authenticate(token, response.data.user_information.username))
+        localStorage.setItem('wanikani_token', token)
       })
       .catch(function (error) {
         console.log("error", error)
