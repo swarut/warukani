@@ -3,4 +3,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .setting-item {
+    width: 300px;
+    margin-bottom: 10px;
+  }
+  .setting-item.save {
+
+  }
 }
