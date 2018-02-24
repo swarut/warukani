@@ -1,11 +1,18 @@
-import { AUTHENTICATE, FETCH_USER_INFORMATION, RECEIVED_USER_INFORMATION } from '../actions/actions'
+import {
+  AUTHENTICATE,
+  FETCH_USER_INFORMATION,
+  RECEIVED_USER_INFORMATION,
+  UPDATE_SETTING
+} from '../actions/actions'
 
 const defaultState = {
   username: null,
   token: null,
   user_information: {},
   isFetching: false,
-  wasFetched: false
+  wasFetched: false,
+  theme: 'warutheme',
+  font: 'default'
 }
 
 const user = (state = defaultState, action) => {
@@ -24,6 +31,11 @@ const user = (state = defaultState, action) => {
         userInformation: action.userInformation,
         isFetching: false,
         wasFetched: true
+      })
+    case UPDATE_SETTING:
+      return Object.assign({}, state, {
+        key: action.key,
+        value: action.value
       })
     default:
       return state

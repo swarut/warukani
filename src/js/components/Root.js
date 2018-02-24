@@ -70,33 +70,42 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   )}/>
 )
 
-const Root = () => (
-  <Provider store={store}>
-    <Router>
-      <MuiThemeProvider muiTheme={getMuiTheme(waruTheme)}>
-        <div className='real-body'>
-          <div className='nav'>
-            <ul>
-              <li><Link to="/"><FlatButton label="Home" primary={true} /></Link></li>
-              <li><Link to="/loading"><FlatButton label="Loading" primary={true} /></Link></li>
-              <li><Link to="/dashboard"><FlatButton label="Dashboard" primary={true} /></Link></li>
-              <li><Link to="/practice"><FlatButton label="Practice" primary={true} /></Link></li>
-              <li><Link to="/setting"><FlatButton label="Setting" primary={true} /></Link></li>
-              <li><Link to="/about"><FlatButton label="About" primary={true} /></Link></li>
-            </ul>
-          </div>
-          <div className='body'>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/loading" component={Loading} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/practice" component={Practice} />
-            <Route exact path="/setting" component={Setting} />
-            <Route exact path="/about" component={About} />
-          </div>
-        </div>
-      </MuiThemeProvider>
-    </Router>
-  </Provider>
-)
+
+class Root extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Router>
+          <MuiThemeProvider muiTheme={getMuiTheme(this.props.theme)}>
+            <div className='real-body'>
+              <div className='nav'>
+                <ul>
+                  <li><Link to="/"><FlatButton label="Home" primary={true} /></Link></li>
+                  <li><Link to="/loading"><FlatButton label="Loading" primary={true} /></Link></li>
+                  <li><Link to="/dashboard"><FlatButton label="Dashboard" primary={true} /></Link></li>
+                  <li><Link to="/practice"><FlatButton label="Practice" primary={true} /></Link></li>
+                  <li><Link to="/setting"><FlatButton label="Setting" primary={true} /></Link></li>
+                  <li><Link to="/about"><FlatButton label="About" primary={true} /></Link></li>
+                </ul>
+              </div>
+              <div className='body'>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/loading" component={Loading} />
+                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/practice" component={Practice} />
+                <Route exact path="/setting" component={Setting} />
+                <Route exact path="/about" component={About} />
+              </div>
+            </div>
+          </MuiThemeProvider>
+        </Router>
+      </Provider>
+    )
+  }
+}
+
+Root.defaultProps = {
+  theme: require('../warutheme.js').default
+}
 
 export default Root
