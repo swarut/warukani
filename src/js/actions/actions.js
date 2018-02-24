@@ -68,6 +68,15 @@ export const increaseVocabsProgress = () => {
   }
 }
 
+export const UPDATE_SETTING = 'UPDATE_SETTING'
+export const updateSetting = (key, value) => {
+  return {
+    type: UPDATE_SETTING,
+    key: key,
+    value: value
+  }
+}
+
 
 export const fetchRadicalsOfLevel = (level, token) => {
   return (dispatch) => {
@@ -76,7 +85,6 @@ export const fetchRadicalsOfLevel = (level, token) => {
     console.log("url", url)
     return axios.get(url)
     .then((response) => {
-      console.log("------- receive radical", response)
       dispatch(receivedVocabs("radical", level, response.data.requested_information))
     })
     .catch((error) => {
@@ -92,7 +100,6 @@ export const fetchKanjisOfLevel = (level, token) => {
     console.log("url", url)
     return axios.get(url)
     .then((response) => {
-      console.log("------- receive kanji", response)
       dispatch(receivedVocabs("kanji", level, response.data.requested_information))
     })
     .catch((error) => {
