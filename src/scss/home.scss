@@ -1,11 +1,11 @@
-@import 'style.scss';
+// @import 'style.scss';
 .Home {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  color: $font-color;
+  // color: $font-color;
   font-family: 'Catamaran', sans-serif;
   :lang(ja) {
     font-family: "Sawarabi Mincho";
