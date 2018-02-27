@@ -1,4 +1,4 @@
-// @import 'style.scss';
+@import 'style.scss';
 
 .word-item {
   background-color: white;
@@ -16,7 +16,7 @@
     padding: 6px 10px 10px 10px;
 
     .word {
-      // color: $background-color2;
+      color: $background-color2;
       font-size: 150%;
       text-align: center;
     }
@@ -45,8 +45,8 @@
       display: flex;
       justify-content: flex-start;
       .tag {
-        // color: $font-color;
-        // background-color: $background-color2;
+        color: $font-color;
+        background-color: $background-color2;
         border-radius: 4px;
         margin-right: 4px;
         padding: 2px 8px;

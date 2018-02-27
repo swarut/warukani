@@ -1,4 +1,4 @@
-// @import 'style.scss';
+@import 'style.scss';
 #root {
   height: 100vh;
   display: flex;
@@ -21,7 +21,7 @@
           margin-left: 20px;
         }
         a {
-          // color: $font-color;
+          color: $font-color;
           text-decoration: none;
           &:hover {
             font-weight: bold;

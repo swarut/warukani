@@ -77,7 +77,7 @@ class Root extends React.Component {
       <Provider store={store}>
         <Router>
           <MuiThemeProvider muiTheme={getMuiTheme(this.props.theme)}>
-            <div className={'real-body ' + this.props.themeName}>
+            <div className='real-body'>
               <div className='nav'>
                 <ul>
                   <li><Link to="/"><FlatButton label="Home" primary={true} /></Link></li>
@@ -105,8 +105,7 @@ class Root extends React.Component {
 }
 
 Root.defaultProps = {
-  theme: require('../warutheme.js').default,
-  themeName: 'warutheme'
+  theme: require('../warutheme.js').default
 }
 
 export default Root
