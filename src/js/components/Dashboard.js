@@ -1,6 +1,6 @@
 import React from 'react'
 import RaisedButton from 'material-ui/RaisedButton';
-import '../../css/dashboard.css'
+// import '../../css/dashboard.css'
 
 class Dashboard extends React.Component {
   render () {

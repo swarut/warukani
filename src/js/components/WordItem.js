@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import '../../css/word-item.css'
+// import '../../css/word-item.css'
 
 
 class WordItem extends React.Component {
