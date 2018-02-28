@@ -7,7 +7,7 @@ import axios from 'axios'
 import { authenticate } from '../actions/actions'
 import { Redirect } from 'react-router'
 
-import '../../css/home.css';
+// import '../../css/home.css';
 
 class Home extends React.Component {
   constructor(props) {

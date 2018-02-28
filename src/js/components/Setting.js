@@ -2,7 +2,7 @@ import React from 'react'
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
-import '../../css/setting.css';
+// import '../../css/setting.css';
 
 class Setting extends React.Component {
   constructor(props) {

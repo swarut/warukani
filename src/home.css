@@ -3,11 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: $font-color;
-
-  font-family: 'Catamaran', sans-serif;
-  :lang(ja) {
+  font-family: 'Catamaran', sans-serif; }
+  .Home :lang(ja) {
     font-family: "Sawarabi Mincho";
-    font-size: 100px;
-  }
-}
+    font-size: 100px; }

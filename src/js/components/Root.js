@@ -24,8 +24,19 @@ import FlatButton from 'material-ui/FlatButton';
 
 import Warukani from '../reducers/warukani'
 
-import '../../css/style.css';
-import '../../css/root.css';
+
+
+// let theme = localStorage.getItem('theme')
+// let theme_css = '../../css/app.css'
+// if(theme) {
+//   theme_css = `../../css/${theme}.css`
+// }
+import '../../css/app.css';
+
+
+
+// import '../../css/style.css';
+// import '../../css/root.css';
 
 // let store = createStore(
 //   Warukani,

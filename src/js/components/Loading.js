@@ -8,7 +8,7 @@ import {
   fetchVocabsOfAllLevels
 } from '../actions/actions'
 import { Redirect } from 'react-router'
-import '../../css/loading.css';
+// import '../../css/loading.css';
 
 class Loading extends React.Component {
 

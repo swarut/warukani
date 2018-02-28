@@ -24,8 +24,8 @@
     "babel-core": "^6.26.0"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar src/scss -o src/css",
-    "watch-css": "npm run build-css && node-sass-chokidar src/scss -o src/css --watch --recursive",
+    "build-css": "node-sass-chokidar src/scss/base/ -o src/css",
+    "watch-css": "npm run build-css && node-sass-chokidar src/scss/base -o src/css --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
