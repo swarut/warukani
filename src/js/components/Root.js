@@ -116,7 +116,8 @@ class Root extends React.Component {
 }
 
 Root.defaultProps = {
-  theme: require('../warutheme.js').default
+  theme: require('../warutheme.js').default,
+  themeName: 'warutheme1'
 }
 
 export default Root
