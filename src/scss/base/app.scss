@@ -1,5 +1,5 @@
 $background-color: #5DA49C !default;
-$background-color2: #4CAF50;
+$background-color2: #4CAF50 !default;
 $font-color: #FFF !default;
 $base-font-size: 20px;
 
@@ -10,11 +10,23 @@ html {
   font-size: $base-font-size;
 }
 
-@import '../dashboard';
-@import '../home';
-@import '../loading-indicator';
-@import '../loading';
-@import '../practice';
-@import '../root';
-@import '../setting';
-@import '../word-item';
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .body-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @import '../dashboard';
+    @import '../home';
+    @import '../loading-indicator';
+    @import '../loading';
+    @import '../practice';
+    @import '../root';
+    @import '../setting';
+    @import '../word-item';
+  }
+}
