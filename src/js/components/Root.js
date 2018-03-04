@@ -10,8 +10,6 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 
-import WaruThemeWrapper1 from './WaruThemeWrapper1'
-import WaruThemeWrapper2 from './WaruThemeWrapper2'
 import Home from './Home'
 import About from './About'
 import Loading from './Loading'
@@ -24,24 +22,8 @@ import FlatButton from 'material-ui/FlatButton';
 
 import Warukani from '../reducers/warukani'
 
-
-
-// let theme = localStorage.getItem('theme')
-// let theme_css = '../../css/app.css'
-// if(theme) {
-//   theme_css = `../../css/${theme}.css`
-// }
-
 import '../../css/app.css';
 
-
-// import '../../css/style.css';
-// import '../../css/root.css';
-
-// let store = createStore(
-//   Warukani,
-//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-// )
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 let store = createStore(
