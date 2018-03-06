@@ -3,8 +3,6 @@ import WordItem from './WordItem'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
-// import '../../css/practice.css'
-
 class Practice extends React.Component {
   render() {
     return (

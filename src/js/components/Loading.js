@@ -4,11 +4,11 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import {
   receivedUserInformation,
-  fetchUserInformation,
-  fetchVocabsOfAllLevels
+  fetchUserInformation
 } from '../actions/actions'
+import { fetchVocabsOfAllLevels } from '../actions/verbActions'
+
 import { Redirect } from 'react-router'
-// import '../../css/loading.css';
 
 class Loading extends React.Component {
 

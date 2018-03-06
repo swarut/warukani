@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import '../../css/loading-indicator.css';
 
 class LoadingIndicator extends React.Component {
 

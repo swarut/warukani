@@ -1,4 +1,4 @@
-import { FETCH_VOCABS, RECEIVED_VOCABS, RECEIVED_ALL_VOCABS, INCREASE_VOCABS_PROGRESS } from '../actions/actions'
+import { FETCH_VOCABS, RECEIVED_VOCABS, RECEIVED_ALL_VOCABS, INCREASE_VOCABS_PROGRESS } from '../actions/verbActions'
 
 const defaultState = {
   isFetching: false,
