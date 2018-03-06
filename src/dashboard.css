@@ -1,0 +1,17 @@
+.dashboard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .dashboard .question {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    text-align: center; }
+  .dashboard .answer {
+    margin-bottom: 10px; }
+    .dashboard .answer .go-button {
+      margin-left: 20px; }
+  .dashboard .solutions {
+    display: flex;
+    flex-direction: column; }

@@ -1,13 +1,24 @@
 import React from 'react'
 import RaisedButton from 'material-ui/RaisedButton';
-// import '../../css/dashboard.css'
+import WordItem from './WordItem'
+import TextField from 'material-ui/TextField'
 
 class Dashboard extends React.Component {
   render () {
     return (
       <div className='dashboard'>
-        <RaisedButton label="Practise" className='button1' />
-        <RaisedButton label="Lookup" />
+        <div className='practice-wraper'>
+          <div className='question'>
+            Lookup
+          </div>
+          <div className='answer'>
+            <TextField hintText='yomi or reading' floatingLabelText='Keyword'/>
+            <RaisedButton label=">" className='go-button' />
+          </div>
+          <div className='solutions'>
+            <WordItem />
+          </div>
+        </div>
       </div>
     )
   }
