@@ -2,7 +2,8 @@ import {
   FETCH_VOCABS,
   RECEIVED_VOCABS,
   RECEIVED_ALL_VOCABS,
-  INCREASE_VOCABS_PROGRESS
+  INCREASE_VOCABS_PROGRESS,
+  SEARCH_VOCAB
 } from '../actions/verbActions'
 
 const defaultState = {
@@ -12,7 +13,8 @@ const defaultState = {
   kanjis: {},
   vocabs: {},
   totalLevel: 40,
-  progressCount: 0
+  progressCount: 0,
+  keyword: null
 }
 
 const vocabs = (state = defaultState, action) => {
@@ -41,6 +43,10 @@ const vocabs = (state = defaultState, action) => {
     case INCREASE_VOCABS_PROGRESS:
       return Object.assign({}, state, {
         progressCount: state.progressCount + 1
+      })
+    case SEARCH_VOCAB:
+      return Object.assign({}, state, {
+        keyword: action.keyword
       })
     default:
       return state

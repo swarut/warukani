@@ -41,6 +41,14 @@ export const increaseVocabsProgress = () => {
   }
 }
 
+export const SEARCH_VOCAB = 'SEARCH_VOCAB'
+export const searchVocab = (keyword) => {
+  return {
+    type: SEARCH_VOCAB,
+    keyword: keyword
+  }
+}
+
 export const fetchRadicalsOfLevel = (level, token) => {
   return (dispatch) => {
     dispatch(fetchVocabs(level))
