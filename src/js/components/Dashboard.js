@@ -40,7 +40,8 @@ class Dashboard extends React.Component {
 Dashboard.propTypes = {}
 const mapStateToProps = (state, ownProps) => {
   return {
-    keyword: state.vocabs.keyword
+    keyword: state.vocabs.keyword,
+    searchResult: state.vocabs.searchResult
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {

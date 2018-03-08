@@ -14,7 +14,8 @@ const defaultState = {
   vocabs: {},
   totalLevel: 40,
   progressCount: 0,
-  keyword: null
+  keyword: null,
+  searchResult: []
 }
 
 const vocabs = (state = defaultState, action) => {
@@ -45,8 +46,12 @@ const vocabs = (state = defaultState, action) => {
         progressCount: state.progressCount + 1
       })
     case SEARCH_VOCAB:
+      let vocabs = state.vocabs[1].filter((x) => {
+        return x.meaning === action.keyword
+      })
       return Object.assign({}, state, {
-        keyword: action.keyword
+        keyword: action.keyword,
+        searchResult: vocabs
       })
     default:
       return state
