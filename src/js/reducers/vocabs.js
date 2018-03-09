@@ -9,9 +9,9 @@ import {
 const defaultState = {
   isFetching: false,
   wasFetched: false,
-  radicals: {},
-  kanjis: {},
-  vocabs: {},
+  radicals: [],
+  kanjis: [],
+  vocabs: [],
   totalLevel: 40,
   progressCount: 0,
   keyword: null,
@@ -26,9 +26,7 @@ const vocabs = (state = defaultState, action) => {
       })
     case RECEIVED_VOCABS:
 
-      let newData = Object.assign({}, state[action.vocabType],{
-        [action.level]: action.requestedInformation
-      })
+      let newData = state[action.vocabType].concat(action.requestedInformation)
 
       return Object.assign({}, state, {
         [action.vocabType]: newData,
