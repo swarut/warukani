@@ -44,8 +44,8 @@ const vocabs = (state = defaultState, action) => {
         progressCount: state.progressCount + 1
       })
     case SEARCH_VOCAB:
-      let vocabs = state.vocabs[1].filter((x) => {
-        return x.meaning === action.keyword
+      let vocabs = state.vocabs.filter((vocab) => {
+        return vocab.meaning === action.keyword
       })
       return Object.assign({}, state, {
         keyword: action.keyword,

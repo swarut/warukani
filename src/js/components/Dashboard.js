@@ -6,17 +6,37 @@ import TextField from 'material-ui/TextField'
 import { searchVocab } from '../actions/verbActions'
 
 class Dashboard extends React.Component {
+
   constructor(props) {
     super(props)
     this.search = this.search.bind(this)
     this.onChange = this.onChange.bind(this)
+    this.renderResult = this.renderResult.bind(this)
   }
+
   onChange(e) {
     this.setState({ keyword: e.target.value })
   }
+
   search() {
     this.props.search(this.state.keyword)
   }
+
+  renderResult() {
+    if(this.props.searchResult.length !== 0) {
+      return this.props.searchResult.map((vocab) => {
+        return <WordItem
+          key={`${vocab.level}-${vocab.character}`}
+          character={vocab.character}
+          level={vocab.level + ''}
+          kana={vocab.kana}
+          meaning={vocab.meaning}
+          tags={vocab.user_specific.user_synonyms}
+        />
+      })
+    }
+  }
+
   render() {
     return (
       <div className='dashboard'>
@@ -29,7 +49,7 @@ class Dashboard extends React.Component {
             <RaisedButton label=">" className='go-button' onClick={this.search} />
           </div>
           <div className='solutions'>
-            <WordItem />
+            {this.renderResult()}
           </div>
         </div>
       </div>
