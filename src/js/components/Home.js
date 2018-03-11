@@ -25,6 +25,15 @@ class Home extends React.Component {
   onTokenChange(e) {
     this.setState({ token: e.target.value })
   }
+  renderRedirect() {
+    if(this.props.username && (this.props.vocabs.length !== 0)) {
+      return <Redirect to="/dashboard" />
+    }
+    if(this.props.username) {
+      return <Redirect to="/loading" />
+    }
+    return ""
+  }
   render() {
     return (
       <div className='Home'>
@@ -36,9 +45,7 @@ class Home extends React.Component {
           floatingLabelText='Your api token' />
         <br/>
         <RaisedButton label='Go' onClick={this.onClick} />
-        {this.props.username ?
-          <Redirect to="/loading" /> : "xxx"
-        }
+        {this.renderRedirect()}
       </div>
     )
   }
@@ -52,7 +59,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     invalid_token: state.errors.invalid_token,
     token: state.user.token,
-    username: state.user.username
+    username: state.user.username,
+    vocabs: state.vocabs.vocabs
   }
 }
 

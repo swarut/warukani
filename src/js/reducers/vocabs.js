@@ -6,12 +6,21 @@ import {
   SEARCH_VOCAB
 } from '../actions/verbActions'
 
+const getVocabsFromStorage = () => {
+  let storage = window.localStorage
+  let vocabs = storage.getItem('vocabs')
+  if(vocabs) {
+    return vocabs
+  }
+  return []
+}
+
 const defaultState = {
   isFetching: false,
   wasFetched: false,
   radicals: [],
   kanjis: [],
-  vocabs: [],
+  vocabs: getVocabsFromStorage(),
   totalLevel: 40,
   progressCount: 0,
   keyword: null,
