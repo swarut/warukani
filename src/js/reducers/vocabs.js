@@ -3,7 +3,8 @@ import {
   RECEIVED_VOCABS,
   RECEIVED_ALL_VOCABS,
   INCREASE_VOCABS_PROGRESS,
-  SEARCH_VOCAB
+  SEARCH_VOCAB,
+  CLEAR_SEARCH
 } from '../actions/verbActions'
 
 const getVocabsFromStorage = () => {
@@ -59,6 +60,11 @@ const vocabs = (state = defaultState, action) => {
       return Object.assign({}, state, {
         keyword: action.keyword,
         searchResult: vocabs
+      })
+    case CLEAR_SEARCH:
+      return Object.assign({}, state, {
+        keyword: defaultState.keyword,
+        searchResult: defaultState.searchResult
       })
     default:
       return state

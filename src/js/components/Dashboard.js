@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton';
 import WordItem from './WordItem'
 import TextField from 'material-ui/TextField'
-import { searchVocab } from '../actions/verbActions'
+import { searchVocab, clearSearch } from '../actions/verbActions'
 
 class Dashboard extends React.Component {
 
@@ -12,6 +12,10 @@ class Dashboard extends React.Component {
     this.search = this.search.bind(this)
     this.onChange = this.onChange.bind(this)
     this.renderResult = this.renderResult.bind(this)
+  }
+
+  componentWillUnmount() {
+    this.props.clearSearch();
   }
 
   onChange(e) {
@@ -40,7 +44,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className='dashboard'>
-        <div className='practice-wraper'>
+        <div className='practice-wrapper'>
           <div className='question'>
             Lookup
           </div>
@@ -67,8 +71,10 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     search: (keyword) => {
-      console.log("search click")
       dispatch(searchVocab(keyword))
+    },
+    clearSearch: () => {
+      dispatch(clearSearch())
     }
   }
 }

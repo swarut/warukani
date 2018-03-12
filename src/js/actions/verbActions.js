@@ -49,6 +49,13 @@ export const searchVocab = (keyword) => {
   }
 }
 
+export const CLEAR_SEARCH = 'CLEAR_SEARCH'
+export const clearSearch = () => {
+  return {
+    type: CLEAR_SEARCH
+  }
+}
+
 export const fetchRadicalsOfLevel = (level, token) => {
   return (dispatch) => {
     dispatch(fetchVocabs(level))
