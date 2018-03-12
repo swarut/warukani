@@ -19,7 +19,12 @@ class Dashboard extends React.Component {
   }
 
   onChange(e) {
-    this.setState({ keyword: e.target.value })
+    let keyword = e.target.value
+    this.setState({ keyword: keyword }, () => {
+      if(keyword.length >= 3) {
+        this.props.search(keyword)
+      }
+    })
   }
 
   search() {
