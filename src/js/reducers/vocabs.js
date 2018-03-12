@@ -8,7 +8,7 @@ import {
 
 const getVocabsFromStorage = () => {
   let storage = window.localStorage
-  let vocabs = storage.getItem('vocabs')
+  let vocabs = JSON.parse(storage.getItem('vocabs'))
   if(vocabs) {
     return vocabs
   }

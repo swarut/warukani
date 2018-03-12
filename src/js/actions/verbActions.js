@@ -114,8 +114,9 @@ export const fetchVocabsOfAllLevels = (token, numberOfLevel) => {
       results.forEach((result) => {
         allVocabs = allVocabs.concat(result.result)
       })
-      let storage = window.localStorage;
-      storage.setItem('vocabs', allVocabs)
+      let storage = window.localStorage
+      console.log("allvocabs", allVocabs)
+      storage.setItem('vocabs', JSON.stringify(allVocabs))
       dispatch(receivedAllVocabs("vocabs", allVocabs))
     })
   }
