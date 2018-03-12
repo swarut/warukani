@@ -31,7 +31,7 @@ class Dashboard extends React.Component {
           level={vocab.level + ''}
           kana={vocab.kana}
           meaning={vocab.meaning}
-          tags={vocab.user_specific.user_synonyms}
+          tags={vocab.user_specific.user_synonyms || []}
         />
       })
     }
