@@ -106,14 +106,22 @@ export const fetchVocabsOfAllLevels = (token, numberOfLevel) => {
     dispatch(fetchAllVocabs())
     let promises = []
     for(let level = 1; level <= numberOfLevel; level++) {
-      let promise = new Promise((resolve, reject) => {
+      let loadVocab = new Promise((resolve, reject) => {
         let url = `https://www.wanikani.com/api/user/${token}/vocabulary/${level}`
         return axios.get(url).then((response) => {
           dispatch(increaseVocabsProgress())
-          resolve({ key: level, result: response.data.requested_information})
+          resolve({ type: 'vocabs', key: level, result: response.data.requested_information})
         })
       })
-      promises.push(promise)
+      promises.push(loadVocab)
+      let loadKanji = new Promise((resolve, reject) => {
+        let url = `https://www.wanikani.com/api/user/${token}/kanji/${level}`
+        return axios.get(url).then((response) => {
+          dispatch(increaseVocabsProgress())
+          resolve({ type: 'kanjis', key: level, result: response.data.requested_information})
+        })
+      })
+      promises.push(loadKanji)
     }
     Promise.all(promises).then((results) => {
       let allVocabs = []
