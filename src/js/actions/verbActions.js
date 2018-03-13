@@ -60,7 +60,6 @@ export const fetchRadicalsOfLevel = (level, token) => {
   return (dispatch) => {
     dispatch(fetchVocabs(level))
     let url = `https://www.wanikani.com/api/user/${token}/radicals/${level}`
-    console.log("url", url)
     return axios.get(url)
     .then((response) => {
       dispatch(receivedVocabs("radical", level, response.data.requested_information))
@@ -75,7 +74,6 @@ export const fetchKanjisOfLevel = (level, token) => {
   return (dispatch) => {
     dispatch(fetchVocabs(level))
     let url = `https://www.wanikani.com/api/user/${token}/kanji/${level}`
-    console.log("url", url)
     return axios.get(url)
     .then((response) => {
       dispatch(receivedVocabs("kanji", level, response.data.requested_information))
@@ -105,12 +103,12 @@ export const fetchVocabsOfAllLevels = (token, numberOfLevel) => {
   return (dispatch) => {
     dispatch(fetchAllVocabs())
     let promises = []
-    for(let level = 1; level <= numberOfLevel; level++) {
+    for(let level = 1; level <= 1; level++) {
       let loadVocab = new Promise((resolve, reject) => {
         let url = `https://www.wanikani.com/api/user/${token}/vocabulary/${level}`
         return axios.get(url).then((response) => {
           dispatch(increaseVocabsProgress())
-          resolve({ type: 'vocabs', key: level, result: response.data.requested_information})
+          resolve({ type: 'vocab', key: level, result: response.data.requested_information})
         })
       })
       promises.push(loadVocab)
@@ -118,7 +116,7 @@ export const fetchVocabsOfAllLevels = (token, numberOfLevel) => {
         let url = `https://www.wanikani.com/api/user/${token}/kanji/${level}`
         return axios.get(url).then((response) => {
           dispatch(increaseVocabsProgress())
-          resolve({ type: 'kanjis', key: level, result: response.data.requested_information})
+          resolve({ type: 'kanji', key: level, result: response.data.requested_information})
         })
       })
       promises.push(loadKanji)
@@ -127,7 +125,11 @@ export const fetchVocabsOfAllLevels = (token, numberOfLevel) => {
       let allVocabs = []
 
       results.forEach((result) => {
-        allVocabs = allVocabs.concat(result.result)
+        let typeWrappedResult = result.result.map((res) => {
+          res.type = result.type
+          return res
+        })
+        allVocabs = allVocabs.concat(typeWrappedResult)
       })
       let storage = window.localStorage
       console.log("allvocabs", allVocabs)
