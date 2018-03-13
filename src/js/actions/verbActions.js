@@ -103,7 +103,7 @@ export const fetchVocabsOfAllLevels = (token, numberOfLevel) => {
   return (dispatch) => {
     dispatch(fetchAllVocabs())
     let promises = []
-    for(let level = 1; level <= 1; level++) {
+    for(let level = 1; level <= numberOfLevel; level++) {
       let loadVocab = new Promise((resolve, reject) => {
         let url = `https://www.wanikani.com/api/user/${token}/vocabulary/${level}`
         return axios.get(url).then((response) => {
