@@ -4,6 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import WordItem from './WordItem'
 import TextField from 'material-ui/TextField'
 import { searchVocab, clearSearch } from '../actions/verbActions'
+import _ from 'lodash'
 
 class Dashboard extends React.Component {
 
@@ -12,6 +13,11 @@ class Dashboard extends React.Component {
     this.search = this.search.bind(this)
     this.onChange = this.onChange.bind(this)
     this.renderResult = this.renderResult.bind(this)
+    this.debounceSearch = _.debounce((keyword) => {
+      if(keyword.length >= 3) {
+        this.props.search(keyword)
+      }
+    }, 2000)
   }
 
   componentWillUnmount() {
@@ -20,11 +26,7 @@ class Dashboard extends React.Component {
 
   onChange(e) {
     let keyword = e.target.value
-    this.setState({ keyword: keyword }, () => {
-      if(keyword.length >= 3) {
-        this.props.search(keyword)
-      }
-    })
+    this.setState({ keyword: keyword }, this.debounceSearch(keyword))
   }
 
   search() {
