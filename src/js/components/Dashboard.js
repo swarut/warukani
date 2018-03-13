@@ -37,7 +37,7 @@ class Dashboard extends React.Component {
     if(this.props.searchResult.length !== 0) {
       return this.props.searchResult.map((vocab) => {
         return <WordItem
-          key={`${vocab.level}-${vocab.character}`}
+          key={`${vocab.type}-${vocab.level}-${vocab.character}`}
           character={vocab.character}
           level={vocab.level + ''}
           kana={vocab.kana}
