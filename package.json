@@ -29,7 +29,7 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/scss/base -o src/css --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject",
     "start-watch-css": "react-scripts start && npm run build-css && node-sasss-chokidar src/ -o src/ --watch --recursive",
     "storybook": "start-storybook -p 9009 -s public",
