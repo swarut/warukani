@@ -1,7 +1,7 @@
 import {
   authenticate,
   AUTHENTICATE
-} from '../src/actions/actions'
+} from './actions'
 
 describe('actions', () => {
   test('authenticate returns action type authenticate', () => {
