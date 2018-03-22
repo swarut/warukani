@@ -7,6 +7,7 @@ import {
   CLEAR_SEARCH
 } from '../actions/verbActions'
 
+
 const getVocabsFromStorage = () => {
   let storage = window.localStorage
   let vocabs = JSON.parse(storage.getItem('vocabs'))
