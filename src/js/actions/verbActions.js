@@ -46,49 +46,6 @@ export const clearSearch = () => {
   }
 }
 
-export const fetchRadicalsOfLevel = (level, token) => {
-  return (dispatch) => {
-    dispatch(fetchVocabs(level))
-    let url = `https://www.wanikani.com/api/user/${token}/radicals/${level}`
-    return axios.get(url)
-    .then((response) => {
-      dispatch(receivedVocabs("radical", level, response.data.requested_information))
-    })
-    .catch((error) => {
-      console.log("error on fetching kanji")
-    })
-  }
-}
-
-export const fetchKanjisOfLevel = (level, token) => {
-  return (dispatch) => {
-    dispatch(fetchVocabs(level))
-    let url = `https://www.wanikani.com/api/user/${token}/kanji/${level}`
-    return axios.get(url)
-    .then((response) => {
-      dispatch(receivedVocabs("kanji", level, response.data.requested_information))
-    })
-    .catch((error) => {
-      console.log("error on fetching kanji")
-    })
-  }
-}
-
-export const fetchVocabsOfLevel = (level, token) => {
-  return (dispatch) => {
-    dispatch(fetchVocabs(level))
-    let url = `https://www.wanikani.com/api/user/${token}/vocabulary/${level}`
-
-    return axios.get(url)
-    .then((response) => {
-      dispatch(receivedVocabs("vocabs", level, response.data.requested_information))
-    })
-    .catch((error) => {
-      console.log("error on fetching vocabs")
-    })
-  }
-}
-
 export const fetchVocabsOfAllLevels = (token, numberOfLevel) => {
   return (dispatch) => {
     dispatch(fetchAllVocabs())
