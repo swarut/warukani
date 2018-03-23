@@ -1,5 +1,4 @@
 import {
-  FETCH_VOCABS,
   RECEIVED_VOCABS,
   RECEIVED_ALL_VOCABS,
   INCREASE_VOCABS_PROGRESS,
@@ -30,10 +29,6 @@ const defaultState = {
 
 const vocabs = (state = defaultState, action) => {
   switch(action.type) {
-    case FETCH_VOCABS:
-      return Object.assign({}, state, {
-        isFetching: true
-      })
     case RECEIVED_ALL_VOCABS:
       return Object.assign({}, state, {
         [action.vocabType]: action.allVocabs,

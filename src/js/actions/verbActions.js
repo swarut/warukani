@@ -1,13 +1,5 @@
 import axios from 'axios'
 
-export const FETCH_VOCABS = 'FETCH_VOCABS'
-export const fetchVocabs = (level) => {
-  return {
-    type: FETCH_VOCABS,
-    level: level
-  }
-}
-
 export const FETCH_ALL_VOCABS = 'FETCH_ALL_VOCABS'
 export const fetchAllVocabs = () => {
   return {
