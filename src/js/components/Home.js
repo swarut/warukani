@@ -26,7 +26,7 @@ class Home extends React.Component {
     this.setState({ token: e.target.value })
   }
   renderRedirect() {
-    if(this.props.username && (this.props.vocabs.length !== 0)) {
+    if(this.props.username && (this.props.vocabs && this.props.vocabs.length !== 0)) {
       return <Redirect to="/dashboard" />
     }
     if(this.props.username) {
