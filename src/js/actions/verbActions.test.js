@@ -14,13 +14,6 @@ import {
 } from './verbActions'
 
 describe('actions', () => {
-  test('fetchVocabs returns the right action', () => {
-    let fetchVocabsAction = fetchVocabs(1)
-    expect(fetchVocabsAction).not.toBeNull()
-    expect(fetchVocabsAction.type).toBe(FETCH_VOCABS)
-    expect(fetchVocabsAction.level).toBe(1)
-  })
-
   test('fetchAllVocabs returns the right action', () => {
     let fetchAllVocabsAction = fetchAllVocabs()
     expect(fetchAllVocabsAction).not.toBeNull()
