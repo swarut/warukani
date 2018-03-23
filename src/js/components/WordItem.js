@@ -34,11 +34,11 @@ WordItem.propTypes = {
 }
 
 WordItem.defaultProps = {
-  character: '進展',
-  level: '4',
-  kana: 'しんてん',
-  meaning: 'advance',
-  tags: ['a1', 'b2', 'c3']
+  character: '',
+  level: '',
+  kana: '',
+  meaning: '',
+  tags: []
 }
 
 export default WordItem
