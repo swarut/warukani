@@ -34,15 +34,6 @@ const vocabs = (state = defaultState, action) => {
       return Object.assign({}, state, {
         isFetching: true
       })
-    case RECEIVED_VOCABS:
-
-      let newData = state[action.vocabType].concat(action.requestedInformation)
-
-      return Object.assign({}, state, {
-        [action.vocabType]: newData,
-        isFetching: false,
-        wasFetched: true
-      })
     case RECEIVED_ALL_VOCABS:
       return Object.assign({}, state, {
         [action.vocabType]: action.allVocabs,

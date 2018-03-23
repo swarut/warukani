@@ -15,16 +15,6 @@ export const fetchAllVocabs = () => {
   }
 }
 
-export const RECEIVED_VOCABS = 'RECEIVED_VOCABS'
-export const receivedVocabs = (vocabType, level, requestedInformation) => {
-  return {
-    type: RECEIVED_VOCABS,
-    level: level,
-    vocabType: vocabType,
-    requestedInformation: requestedInformation
-  }
-}
-
 export const RECEIVED_ALL_VOCABS = 'RECEIVED_ALL_VOCABS'
 export const receivedAllVocabs = (vocabType, allVocabs) => {
   return {

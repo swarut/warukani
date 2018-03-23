@@ -3,8 +3,6 @@ import {
   FETCH_VOCABS,
   fetchAllVocabs,
   FETCH_ALL_VOCABS,
-  receivedVocabs,
-  RECEIVED_VOCABS,
   receivedAllVocabs,
   RECEIVED_ALL_VOCABS,
   increaseVocabsProgress,
@@ -27,15 +25,6 @@ describe('actions', () => {
     let fetchAllVocabsAction = fetchAllVocabs()
     expect(fetchAllVocabsAction).not.toBeNull()
     expect(fetchAllVocabsAction.type).toBe(FETCH_ALL_VOCABS)
-  })
-
-  test('receivedVocabs returns the right action', () => {
-    let receivedVocabsAction = receivedVocabs('vocab', 1, 'requestInfo')
-    expect(receivedVocabsAction).not.toBeNull()
-    expect(receivedVocabsAction.type).toBe(RECEIVED_VOCABS)
-    expect(receivedVocabsAction.level).toBe(1)
-    expect(receivedVocabsAction.vocabType).toBe('vocab')
-    expect(receivedVocabsAction.requestedInformation).toBe('requestInfo')
   })
 
   test('receivedAllVocabs returns the right action', () => {
