@@ -36,13 +36,14 @@ class Dashboard extends React.Component {
   renderResult() {
     if(this.props.searchResult.length !== 0) {
       return this.props.searchResult.map((vocab) => {
+        let tags = vocab.user_specific ? vocab.user_specific.user_synonyms || [] : []
         return <WordItem
           key={`${vocab.type}-${vocab.level}-${vocab.character}`}
           character={vocab.character}
           level={vocab.level + ''}
           kana={vocab.kana}
           meaning={vocab.meaning}
-          tags={vocab.user_specific.user_synonyms || []}
+          tags={tags}
         />
       })
     }
