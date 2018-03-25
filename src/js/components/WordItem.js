@@ -12,7 +12,14 @@ class WordItem extends React.Component {
           <div className='level'>{this.props.level}</div>
         </div>
         <div className='details'>
-          <div className='yomu'>{this.props.kana}</div>
+          <div className='yomu'>
+            {Object.keys(this.props.yomu).map((key) => {
+              if(this.props.yomu[key]) {
+                return <div key={key}>{key}: {this.props.yomu[key]}</div>
+              }
+              return ''
+            })}
+          </div>
           <div className='meaning'>{this.props.meaning}</div>
           <div className='tags'>
             {this.props.tags.map( (t, index) =>
@@ -28,7 +35,7 @@ class WordItem extends React.Component {
 WordItem.propTypes = {
   character: PropTypes.string.isRequired,
   level: PropTypes.string.isRequired,
-  kana: PropTypes.string.isRequired,
+  yomu: PropTypes.object.isRequired,
   meaning: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string)
 }
