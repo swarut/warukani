@@ -63,17 +63,30 @@ export const fetchVocabsOfAllLevels = (token, numberOfLevel) => {
     Promise.all(promises).then((results) => {
       let allVocabs = []
       let idCounter = 0
+      let lookUp = {}
       results.forEach((result) => {
         let typeWrappedResult = result.result.map((res) => {
           res.type = result.type
           res.id = idCounter
+
+          let key = res.meaning.slice(0, 3)
+          console.log("key ", key)
+          if(!lookUp[key]) {
+            lookUp[key] = [idCounter]
+          }
+          else {
+            lookUp[key].push(idCounter)
+          }
+
           idCounter = idCounter + 1
+
           return res
         })
         allVocabs = allVocabs.concat(typeWrappedResult)
       })
       let storage = window.localStorage
       storage.setItem('vocabs', JSON.stringify(allVocabs))
+      storage.setItem('vocabs_lookup', JSON.stringify(lookUp))
       dispatch(receivedAllVocabs("vocabs", allVocabs))
     })
   }

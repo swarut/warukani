@@ -14,12 +14,22 @@ const getVocabsFromStorage = () => {
   return vocabs
 }
 
+const getVocabsLookUpFromStorage = () => {
+  let storage = window.localStorage
+  let vocabsLookUp = []
+  if(storage) {
+    vocabsLookUp = JSON.parse(storage.getItem('vocabs_lookup'))
+  }
+  return vocabsLookUp
+}
+
 const defaultState = {
   isFetching: false,
   wasFetched: false,
   radicals: [],
   kanjis: [],
   vocabs: getVocabsFromStorage(),
+  vocabsLookUp: getVocabsLookUpFromStorage(),
   totalLevel: 40,
   progressCount: 0,
   keyword: null,
