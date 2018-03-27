@@ -62,10 +62,12 @@ export const fetchVocabsOfAllLevels = (token, numberOfLevel) => {
     }
     Promise.all(promises).then((results) => {
       let allVocabs = []
-
+      let idCounter = 0
       results.forEach((result) => {
         let typeWrappedResult = result.result.map((res) => {
           res.type = result.type
+          res.id = idCounter
+          idCounter = idCounter + 1
           return res
         })
         allVocabs = allVocabs.concat(typeWrappedResult)
