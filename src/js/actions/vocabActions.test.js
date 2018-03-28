@@ -11,7 +11,7 @@ import {
   SEARCH_VOCAB,
   clearSearch,
   CLEAR_SEARCH
-} from './verbActions'
+} from './vocabActions'
 
 describe('actions', () => {
   test('fetchAllVocabs returns the right action', () => {

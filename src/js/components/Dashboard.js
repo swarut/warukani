@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton';
 import WordItem from './WordItem'
 import TextField from 'material-ui/TextField'
-import { searchVocab, clearSearch } from '../actions/verbActions'
+import { searchVocab, clearSearch } from '../actions/vocabActions'
 import _ from 'lodash'
 
 class Dashboard extends React.Component {

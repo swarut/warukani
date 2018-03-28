@@ -3,7 +3,7 @@ import {
   INCREASE_VOCABS_PROGRESS,
   SEARCH_VOCAB,
   CLEAR_SEARCH
-} from '../actions/verbActions'
+} from '../actions/vocabActions'
 
 const getVocabsFromStorage = () => {
   let storage = window.localStorage
@@ -39,11 +39,17 @@ const defaultState = {
 const vocabs = (state = defaultState, action) => {
   switch(action.type) {
     case RECEIVED_ALL_VOCABS:
-      return Object.assign({}, state, {
+
+      let updated = {
         [action.vocabType]: action.allVocabs,
         isFetching: false,
         wasFetched: true
-      })
+      }
+      if(action.vocabsLookUp) {
+        updated.vocabsLookUp = action.vocabsLookUp
+      }
+
+      return Object.assign({}, state, updated)
     case INCREASE_VOCABS_PROGRESS:
       return Object.assign({}, state, {
         progressCount: state.progressCount + 1

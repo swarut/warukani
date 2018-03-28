@@ -6,7 +6,7 @@ import {
   receivedUserInformation,
   fetchUserInformation
 } from '../actions/actions'
-import { fetchVocabsOfAllLevels } from '../actions/verbActions'
+import { fetchVocabsOfAllLevels } from '../actions/vocabActions'
 
 import { Redirect } from 'react-router'
 

@@ -8,11 +8,12 @@ export const fetchAllVocabs = () => {
 }
 
 export const RECEIVED_ALL_VOCABS = 'RECEIVED_ALL_VOCABS'
-export const receivedAllVocabs = (vocabType, allVocabs) => {
+export const receivedAllVocabs = (vocabType, allVocabs, vocabsLookUp = null) => {
   return {
     type: RECEIVED_ALL_VOCABS,
     allVocabs: allVocabs,
-    vocabType: vocabType
+    vocabType: vocabType,
+    vocabsLookUp: vocabsLookUp
   }
 }
 
@@ -87,7 +88,7 @@ export const fetchVocabsOfAllLevels = (token, numberOfLevel) => {
       let storage = window.localStorage
       storage.setItem('vocabs', JSON.stringify(allVocabs))
       storage.setItem('vocabs_lookup', JSON.stringify(lookUp))
-      dispatch(receivedAllVocabs("vocabs", allVocabs))
+      dispatch(receivedAllVocabs("vocabs", allVocabs, lookUp))
     })
   }
 }

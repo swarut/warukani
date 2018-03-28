@@ -5,7 +5,7 @@ import {
   increaseVocabsProgress,
   searchVocab,
   clearSearch
-} from '../actions/verbActions'
+} from '../actions/vocabActions'
 
 describe('vocab reducer', () => {
 
