@@ -55,12 +55,22 @@ const vocabs = (state = defaultState, action) => {
         progressCount: state.progressCount + 1
       })
     case SEARCH_VOCAB:
-      let vocabs = state.vocabs.filter((vocab) => {
-        return vocab.meaning === action.keyword
-      })
+      // let vocabs = state.vocabs.filter((vocab) => {
+      //   return vocab.meaning === action.keyword
+      // })
+      let result = []
+      console.log("---search for", action.keyword)
+      let vocabIds = state.vocabsLookUp[action.keyword]
+      console.log("---ids", vocabIds)
+      if(vocabIds) {
+        result = vocabIds.map((ids) => {
+          return state.vocabs[ids]
+        })
+      }
+
       return Object.assign({}, state, {
         keyword: action.keyword,
-        searchResult: vocabs
+        searchResult: result
       })
     case CLEAR_SEARCH:
       return Object.assign({}, state, {
