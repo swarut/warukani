@@ -59,9 +59,7 @@ const vocabs = (state = defaultState, action) => {
       //   return vocab.meaning === action.keyword
       // })
       let result = []
-      console.log("---search for", action.keyword)
       let vocabIds = state.vocabsLookUp[action.keyword]
-      console.log("---ids", vocabIds)
       if(vocabIds) {
         result = vocabIds.map((ids) => {
           return state.vocabs[ids]
