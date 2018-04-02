@@ -17,7 +17,7 @@ class Dashboard extends React.Component {
       if(keyword.length >= 3) {
         this.props.search(keyword)
       }
-    }, 500)
+    }, 300)
   }
 
   componentWillUnmount() {
