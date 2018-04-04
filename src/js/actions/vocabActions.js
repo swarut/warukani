@@ -70,13 +70,18 @@ export const fetchVocabsOfAllLevels = (token, numberOfLevel) => {
           res.type = result.type
           res.id = idCounter
 
-          let key = res.meaning.replace(' ', '').slice(0, 3)
-          if(!lookUp[key]) {
-            lookUp[key] = [idCounter]
-          }
-          else {
-            lookUp[key].push(idCounter)
-          }
+          let key1 = res.meaning.replace(' ', '').slice(0, 3)
+          let key2 = res.meaning.replace(' ', '').slice(0, 4)
+          let key3 = res.meaning.replace(' ', '').slice(0, 5)
+          let keys = [key1, key2, key3]
+          keys.forEach((key) => {
+            if(!lookUp[key]) {
+              lookUp[key] = [idCounter]
+            }
+            else {
+              lookUp[key].push(idCounter)
+            }
+          })
 
           idCounter = idCounter + 1
 
