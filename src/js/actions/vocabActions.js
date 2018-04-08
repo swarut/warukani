@@ -75,6 +75,7 @@ export const fetchVocabsOfAllLevels = (token, numberOfLevel) => {
           let key3 = res.meaning.replace(' ', '').slice(0, 5)
           let key4 = res.meaning.replace(' ', '').slice(0, 6)
           let keys = [key1, key2, key3, key4]
+          // I'm so lazy today.
           keys.forEach((key) => {
             if(!lookUp[key]) {
               lookUp[key] = [idCounter]
