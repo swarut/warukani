@@ -17,7 +17,7 @@ class Setting extends React.Component {
         <div className='setting-item'>
           <SelectField
             floatingLabelText="Font"
-            value={'sdfsd'}
+            value={''}
             onChange={this.handleChange}>
             <MenuItem value={1} primaryText='font' />
             <MenuItem value={2} primaryText='font' />
