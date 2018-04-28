@@ -5,25 +5,25 @@
   "dependencies": {
     "axios": "^0.17.1",
     "history": "^4.7.2",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.10",
     "material-ui": "^0.20.0",
     "node-sass-chokidar": "0.0.3",
     "npm": "^5.8.0",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "react-scripts": "1.1.0",
-    "@storybook/react": "^3.3.11",
-    "@storybook/addon-actions": "^3.3.11",
-    "@storybook/addon-links": "^3.3.11",
-    "@storybook/addons": "^3.3.11",
-    "babel-core": "^6.26.0"
+    "@storybook/addon-actions": "^3.4.3",
+    "@storybook/addon-links": "^3.4.3",
+    "@storybook/addons": "^3.4.3",
+    "@storybook/react": "^3.4.3",
+    "babel-core": "^6.26.3",
+    "react-scripts": "1.1.0"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/scss/base/ -o src/css",
