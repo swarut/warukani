@@ -2,7 +2,8 @@ import {
   RECEIVED_ALL_VOCABS,
   INCREASE_VOCABS_PROGRESS,
   SEARCH_VOCAB,
-  CLEAR_SEARCH
+  CLEAR_SEARCH,
+  SELECT_WORDS
 } from '../actions/vocabActions'
 
 const getVocabsFromStorage = () => {
@@ -55,7 +56,7 @@ const vocabs = (state = defaultState, action) => {
         progressCount: state.progressCount + 1
       })
     case SEARCH_VOCAB:
-    
+
       let result = []
       let vocabIds = state.vocabsLookUp[action.keyword]
       if(vocabIds) {
@@ -78,6 +79,10 @@ const vocabs = (state = defaultState, action) => {
       return Object.assign({}, state, {
         keyword: defaultState.keyword,
         searchResult: defaultState.searchResult
+      })
+    case SELECT_WORDS:
+      return Object.assign({}, state, {
+        
       })
     default:
       return state
