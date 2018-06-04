@@ -24,6 +24,10 @@ const getVocabsLookUpFromStorage = () => {
   return vocabsLookUp
 }
 
+const randomlySelectWords = (amount) => {
+
+}
+
 const defaultState = {
   isFetching: false,
   wasFetched: false,
@@ -82,7 +86,7 @@ const vocabs = (state = defaultState, action) => {
       })
     case SELECT_WORDS:
       return Object.assign({}, state, {
-        
+        selectedWords: ''
       })
     default:
       return state
