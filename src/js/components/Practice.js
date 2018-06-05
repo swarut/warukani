@@ -3,9 +3,15 @@ import React from 'react'
 // import TextField from 'material-ui/TextField'
 // import RaisedButton from 'material-ui/RaisedButton'
 import { connect } from 'react-redux'
+import { selectWords } from '../actions/vocabActions'
 
 class Practice extends React.Component {
+  componentDidMount() {
+    this.props.getSelectedWords()
+  }
+
   render() {
+    console.log('---', this.props.selectedWords)
     return (
       <div className='practice'>
         <div className='practice-wraper'>
@@ -32,8 +38,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    search: (keyword) => {
-
+    getSelectedWords: (keyword) => {
+      dispatch(selectWords())
     }
   }
 }

@@ -40,7 +40,7 @@ export const clearSearch = () => {
 }
 
 export const SELECT_WORDS = 'SELECT_WORDS'
-export const selectWord = () => {
+export const selectWords = () => {
   return {
     type: SELECT_WORDS
   }
