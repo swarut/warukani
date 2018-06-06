@@ -25,6 +25,11 @@ class Practice extends React.Component {
     return state
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('component did update - prev props', prevProps)
+    console.log('component did update - prev state', prevState)
+  }
+
   render() {
     console.log('---', this.props.selectedWords)
     console.log('---state', this.state)
