@@ -15,24 +15,37 @@ class Practice extends React.Component {
   }
 
   componentDidMount() {
+    console.log('componentDidMount')
     this.props.getSelectedWords()
   }
 
-  static getDerivedStateFromProps(props, state) {
-    console.log('getDerivedStateFromProps - props', props)
-    console.log('getDerivedStateFromProps - state', state)
-    state.size = props.selectedWords.length()
-    return state
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log('getDerivedStateFromProps - prevState', prevState)
+    console.log('getDerivedStateFromProps - nextProps', nextProps)
+    return {
+      size: nextProps.selectedWords.length,
+      name: 'taiko'
+    }
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('component did update - prev props', prevProps)
     console.log('component did update - prev state', prevState)
+    console.log('component did update - current props', this.props.selectedWords)
+    console.log('component did update - current state', this.state)
+    // this.setState({ size: this.props.selectedWords.length })
+    console.log('------------------------------------')
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('getSnapshotBeforeUpdate --------------[][][][][][]')
+    return null
   }
 
   render() {
-    console.log('---', this.props.selectedWords)
+    console.log('--- selectedwords', this.props.selectedWords)
     console.log('---state', this.state)
+    console.log('--------')
     return (
       <div className='practice'>
         <div className='practice-wraper'>
@@ -53,6 +66,7 @@ class Practice extends React.Component {
 
 Practice.propTypes = {}
 const mapStateToProps = (state, ownProps) => {
+  console.log('mapStateToProps----> new propppppsss')
   return {
     selectedWords: state.vocabs.selectedWords
   }
